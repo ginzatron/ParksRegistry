@@ -20,12 +20,9 @@ namespace WebApplication.Web.Models
         public string Quote { get; set; }
         public string QuoteSource { get; set; }
         public string Description { get; set; }
-        public int EntryFee { get; set;  }
+        public int EntryFee { get; set; }
         public int NumberAnimalSpecies { get; set; }
 
-        internal void Add(Park park)
-        {
-            throw new NotImplementedException();
-        }
+        public IList<Weather> weathers = new List<Weather>();
     }
 }

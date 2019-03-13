@@ -17,6 +17,8 @@ namespace WebApplication.Web.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "*")]
+        [MinLength(2)]
+        [MaxLength(2)]
         public string State { get; set; }
 
         [Required]
