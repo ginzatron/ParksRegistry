@@ -9,7 +9,7 @@ namespace WebApplication.Web.Models
     public class SurveyViewModel
     {
         [Required(ErrorMessage = "*")]
-        public string Name { get; set; }
+        public string Code { get; set; }
 
         [Display(Name = "Your Email")]
         [Required(ErrorMessage = "*")]
@@ -22,7 +22,6 @@ namespace WebApplication.Web.Models
         public string State { get; set; }
 
         [Required]
-        [Range(0,10)]
-        public int ActivityLevel { get; set; }
+        public string ActivityLevel { get; set; }
     }
 }

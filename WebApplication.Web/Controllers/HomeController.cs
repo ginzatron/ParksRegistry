@@ -42,7 +42,11 @@ namespace WebApplication.Web.Controllers
         public IActionResult Survey(SurveyViewModel model)
         {
             // add model survey results to survey-result table
-            return RedirectToAction("FavoriteParks");
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("FavoriteParks");
+            }
+            return View(model);
         }
 
         public IActionResult FavoriteParks()

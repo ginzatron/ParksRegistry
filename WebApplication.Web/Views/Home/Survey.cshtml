@@ -8,9 +8,9 @@
 <div id="survey">
     <form method="post" asp-controller="home" asp-action="survey">
         <div>
-            <label name="Name">Name</label>
-            <input asp-for="Name" />
-            <span asp-validation-for="Name"></span>
+            <label name="Code">Park Name</label>
+            <input asp-for="Code" />
+            <span asp-validation-for="Code"></span>
         </div>
 
         <div>
@@ -26,7 +26,7 @@
         </div>
 
         <div>
-            <label name="ActivityLevel">Activity Levevl (0-10)</label>
+            <label name="ActivityLevel">Activity Level</label>
             <input asp-for="ActivityLevel" />
             <span asp-validation-for="ActivityLevel"></span>
         </div>
