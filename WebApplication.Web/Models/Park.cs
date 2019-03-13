@@ -15,12 +15,17 @@ namespace WebApplication.Web.Models
         public int Miles { get; set; }
         public int Campsites { get; set; }
         public string Climate { get; set; }
-        public DateTime YearFounded { get; set; }
+        public int YearFounded { get; set; }
         public int AnnualVisitorCount { get; set; }
         public string Quote { get; set; }
         public string QuoteSource { get; set; }
         public string Description { get; set; }
-        public decimal EntryFee { get; set;  }
+        public int EntryFee { get; set;  }
         public int NumberAnimalSpecies { get; set; }
+
+        internal void Add(Park park)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model  IList<Park>
+﻿@model IList<Park>
 @{
     ViewData["Title"] = "Home Page";
     string filePath = string.Empty;
@@ -9,17 +9,21 @@
 <div id="parks">
     @foreach (Park park in Model)
     {
-    <div class="park">
-        <div class="park-image">
-            @{ filePath = park.Code.ToLower() + ".jpg"; }
-            <img src="~/images/parks/@filePath" />
+        <div class="park">
+            <div class="park-image">
+                <a asp-controller="home" asp-action="detail" asp-route-id="@park.Code">
+                    @{ filePath = park.Code.ToLower() + ".jpg"; }
+                    <img src="~/images/parks/@filePath" />
+                </a>
+            </div>
+            <div class="park-info">
+                <a asp-controller="home" asp-action="detail" asp-route-id="@park.Code">
+                    <h3>@park.Name</h3>
+                </a>
+                <h4>@park.State</h4>
+                <p>@park.Description</p>
+            </div>
         </div>
-        <div class="park-info">
-            <h3>@park.Name</h3>
-            <h4>@park.State</h4>
-            <p>@park.Description</p>
-        </div>
-    </div>
 
     }
 </div>
