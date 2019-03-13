@@ -43,7 +43,7 @@ namespace WebApplication.Web.DAL
             return parks;
         }
 
-        public Park GetParkByCode(int code)
+        public Park GetParkByCode(string code)
         {
             Park park = new Park();
 
@@ -53,15 +53,16 @@ namespace WebApplication.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM park", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM park WHERE park.parkCode = @code", conn);
+                    cmd.Parameters.AddWithValue("@code", code);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        Park parks = ConvertReaderToPark(reader);
-                        park.Add(park);
+                        park = ConvertReaderToPark(reader);
                     }
+
                 }
             }
             catch (SqlException ex)
@@ -81,7 +82,7 @@ namespace WebApplication.Web.DAL
             park.State = Convert.ToString(reader["state"]);
             park.Description = Convert.ToString(reader["parkDescription"]);
             park.Quote = Convert.ToString(reader["inspirationalQuote"]);
-            park.QuoteSource = Convert.ToString(reader["inspirationQuoteSource"]);
+            park.QuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]);
             park.Acerage = Convert.ToInt32(reader["acreage"]);
             park.Elevation = Convert.ToInt32(reader["elevationInFeet"]);
             park.Miles = Convert.ToInt32(reader["milesOfTrail"]);

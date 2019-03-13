@@ -10,6 +10,6 @@ namespace WebApplication.Web.DAL
     {
         IList<Park> GetAllParks();
 
-        Park GetParkByCode(int code);
+        Park GetParkByCode(string code);
     }
 }

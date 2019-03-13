@@ -1,13 +1,30 @@
 ﻿@model Park
 @{
     ViewData["Title"] = "Detail";
+    string filePath = string.Empty;
 }
 
-<h2>Detail</h2>
+@{ filePath = Model.Code.ToLower() + ".jpg"; }
 
-<div class="detailHeader">
+<h2>@Model.Name</h2>
 
-    <img src="~/images/parks"
+<div id="detail">
+    <div class="park-image">
+        <img src="~/images/parks/@filePath" />
+    </div>
 
+    <h3>@Model.State</h3>
+    <h3>@Model.Acerage</h3>
+    <h3>@Model.Elevation</h3>
+    <h3>@Model.Miles</h3>
+    <h3>@Model.Campsites</h3>
+    <h3>@Model.Climate</h3>
+    <h3>@Model.YearFounded</h3>
+    <h3>@Model.AnnualVisitorCount</h3>
+    <h3>@Model.QuoteSource</h3>
+    <p>@Model.Quote</p>
+    <p>@Model.Description</p>
+    <h3>$@Model.EntryFee</h3>
+    <h3>@Model.NumberAnimalSpecies</h3>
 
 </div>

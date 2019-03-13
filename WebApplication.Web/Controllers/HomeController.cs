@@ -22,9 +22,25 @@ namespace WebApplication.Web.Controllers
             return View(parks);
         }  
         
-        public IActionResult Detail(int id)
+        public IActionResult Detail(string code)
+        {
+            Park park = parkDAO.GetParkByCode(code);
+            return View(park);
+        }
+
+        [HttpGet]
+        public IActionResult Survey()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Survey(SurveyViewModel model)
+        {
+            // call get park by name
+            // get id from the park
+            return RedirectToAction("Detail");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

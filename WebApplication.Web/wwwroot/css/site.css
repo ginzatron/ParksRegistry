@@ -8,3 +8,7 @@
     flex-direction: row;
 }
 
+#survey {
+    display:flex;
+}
+
