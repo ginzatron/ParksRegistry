@@ -13,10 +13,13 @@ namespace WebApplication.Web.Controllers
     {
         private IParkDAO parkDAO;
         private IWeatherDAO weatherDAO;
-        public HomeController(IParkDAO parkDAO, IWeatherDAO weatherDAO)
+        private ISurveyDAO surveyDAO;
+
+        public HomeController(IParkDAO parkDAO, IWeatherDAO weatherDAO, ISurveyDAO surveyDAO)
         {
             this.parkDAO = parkDAO;
             this.weatherDAO = weatherDAO;
+            this.surveyDAO = surveyDAO;
         }
         public IActionResult Index()
         {
@@ -44,14 +47,16 @@ namespace WebApplication.Web.Controllers
             // add model survey results to survey-result table
             if (ModelState.IsValid)
             {
+                surveyDAO.SaveSurvey(model);
+
                 return RedirectToAction("FavoriteParks");
             }
             return View(model);
         }
-
-        public IActionResult FavoriteParks()
+        // TODO need to re-evaluate the parameters possibly
+        public IActionResult FavoriteParks(SurveyViewModel model)
         {
-            return View();
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

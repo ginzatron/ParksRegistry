@@ -39,7 +39,6 @@ namespace WebApplication.Web.DAL
             }
             catch (SqlException ex)
             {
-
                 throw;
             }
             return weathers;

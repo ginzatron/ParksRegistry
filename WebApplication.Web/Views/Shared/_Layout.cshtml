@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApplication.Web</title>
     <link href="~/css/site.css" rel="stylesheet" />
+
 </head>
 <body>
-    <h1>Welcome!</h1>
+    <img class="bannerImage" src="~/images/logo.png" />
+
+    <div class="navbar-fixed-top">
+        <ul class="nav navbar-nav">
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="Survey">Survey</a></li>
+        </ul>
+    </div>
 
     @RenderBody()
 
