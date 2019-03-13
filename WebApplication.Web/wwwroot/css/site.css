@@ -1,1 +1,10 @@
-﻿
+﻿#parks {
+    display: flex;
+    flex-direction: column;
+}
+
+.park {
+    display: flex;
+    flex-direction: row;
+}
+

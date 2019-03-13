@@ -1,5 +1,25 @@
-﻿@{
+﻿@model  IList<Park>
+@{
     ViewData["Title"] = "Home Page";
+    string filePath = string.Empty;
 }
 
 <h2>Index</h2>
+
+<div id="parks">
+    @foreach (Park park in Model)
+    {
+    <div class="park">
+        <div class="park-image">
+            @{ filePath = park.Code.ToLower() + ".jpg"; }
+            <img src="~/images/parks/@filePath" />
+        </div>
+        <div class="park-info">
+            <h3>@park.Name</h3>
+            <h4>@park.State</h4>
+            <p>@park.Description</p>
+        </div>
+    </div>
+
+    }
+</div>
