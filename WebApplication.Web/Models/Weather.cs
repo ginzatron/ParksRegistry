@@ -12,5 +12,15 @@ namespace WebApplication.Web.Models
         public int LowTemp { get; set; }
         public int HighTemp { get; set; }
         public string Forecast { get; set; }
+
+        public IDictionary<string, string> weatherImages = new Dictionary<string, string>()
+        {
+            {"cloudy", "cloudy.png" },
+            { "partly cloudy","partlyCloudy.png"},
+            { "rain","rain.png"},
+            { "snow","snow.png"},
+            { "sunny","sunny.png"},
+            { "thunderstorms","thunderstorms.png"}
+        };
     }
 }

@@ -26,7 +26,7 @@ namespace WebApplication.Web.DAL
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand("SELECT * FROM weather WHERE weather.parkCode = @code ", conn);
-                    cmd.Parameters.AddWithValue("@code", conn);
+                    cmd.Parameters.AddWithValue("@code", code);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

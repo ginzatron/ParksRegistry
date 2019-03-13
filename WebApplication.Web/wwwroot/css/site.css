@@ -12,3 +12,12 @@
     display:flex;
 }
 
+#weathers {
+    display: flex;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+}
+
