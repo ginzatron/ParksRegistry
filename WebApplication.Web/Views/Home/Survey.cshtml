@@ -7,7 +7,8 @@
 
 <div id="survey">
     <form method="post" asp-controller="home" asp-action="survey">
-        <div>
+
+        <div class="park">
             <label name="Code">Favorite Park</label>
 
             <select asp-for="Code">
@@ -24,19 +25,19 @@
             </select>
         </div>
 
-        <div>
+        <div class="email">
             <label name="Email">Email</label>
             <input asp-for="Email" />
             <span asp-validation-for="Email"></span>
         </div>
 
-        <div>
+        <div class="state">
             <label name="State">State</label>
             <input asp-for="State" />
             <span asp-validation-for="State"></span>
         </div>
 
-        <div>
+        <div class="activity">
             <label name="ActivityLevel">Activity Level</label>
 
             <select asp-for="ActivityLevel">
@@ -45,9 +46,10 @@
                 <option value="active">Active</option>
                 <option value="extremely_active">Extremely Active</option>
             </select>
-
         </div>
-
         <input type="submit" value="Submit Survey" />
     </form>
 </div>
+
+
+

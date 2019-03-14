@@ -9,27 +9,29 @@
     flex-direction: row;
 }
 
+
 #survey {
-    display:flex;
+    display: flex;
+    flex-direction: column;
 }
 
-/*#detail-body {
-    display: grid;
-    grid-template-columns:1fr 2fr 2fr 2fr 2fr 2fr 1fr;
-    grid-template-areas:
-    '. header header header header header .'
-    'park park park park park park park'
-    '. details details details details details .'
-    '. info info info info info .'
-    '. weather weather weather weather weather .';
+.park label{
+    width: 200px;
+}
 
-}*/
+.email label{
+    width: 200px;
+}
+
+.state label {
+    width:200px;
+}
+
 
 .park-name {
     grid-area: header;
     text-align: center;
 }
-
 
 .park-image {
     grid-area: park;
