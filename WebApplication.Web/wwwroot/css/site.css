@@ -1,6 +1,7 @@
 ﻿#parks {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 .park {
@@ -12,17 +13,17 @@
     display:flex;
 }
 
-#detail-body {
+/*#detail-body {
     display: grid;
     grid-template-columns:1fr 2fr 2fr 2fr 2fr 2fr 1fr;
     grid-template-areas:
     '. header header header header header .'
-    '. . park park park . .'
+    'park park park park park park park'
     '. details details details details details .'
     '. info info info info info .'
     '. weather weather weather weather weather .';
 
-}
+}*/
 
 .park-name {
     grid-area: header;
@@ -34,12 +35,11 @@
     grid-area: park;
     width: 100%;
     text-align: center;
+    margin: 10px;
 }
 
 .details {
     grid-area: details;
-    display: flex;
-    flex-wrap: wrap;
 }
 .info {
     grid-area: info;
@@ -57,5 +57,30 @@
 
 .bannerImage {
     max-width: 40%;
+}
+
+.park-info {
+    margin: 10px;
+}
+
+.detailItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather:first-child {
+    
+}
+
+.header {
+    background-color: lightblue;
+}
+
+.navbar-fixed-top {
+    background-color: darkolivegreen;
+}
+
+.nav.navbar-nav {
+    margin-top: 0px;
 }
 
