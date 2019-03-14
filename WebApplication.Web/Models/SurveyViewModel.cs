@@ -21,7 +21,7 @@ namespace WebApplication.Web.Models
         [MaxLength(2)]
         public string State { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "*")]
         public string ActivityLevel { get; set; }
     }
 }
