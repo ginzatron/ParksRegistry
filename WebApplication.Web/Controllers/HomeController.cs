@@ -41,7 +41,6 @@ namespace WebApplication.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Survey(SurveyViewModel model)
         {
-            // add model survey results to survey-result table
             if (ModelState.IsValid)
             {
                 return RedirectToAction("FavoriteParks");
