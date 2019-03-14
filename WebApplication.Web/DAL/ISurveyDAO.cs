@@ -7,6 +7,6 @@ namespace WebApplication.Web.DAL
     {
         IList<SurveyViewModel> GetAllSurveys();
 
-        int SaveSurvey(SurveyViewModel newSurvey);
+        void SaveSurvey(SurveyViewModel newSurvey);
     }
 }

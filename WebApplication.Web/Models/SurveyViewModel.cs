@@ -23,5 +23,8 @@ namespace WebApplication.Web.Models
 
         [Required(ErrorMessage = "*")]
         public string ActivityLevel { get; set; }
+
+        public string ParkName { get; set; }
+        public int SurveyCount { get; set; }
     }
 }

@@ -53,9 +53,10 @@ namespace WebApplication.Web.Controllers
             return View(model);
         }
         // TODO need to re-evaluate the parameters possibly
-        public IActionResult FavoriteParks(SurveyViewModel model)
+        public IActionResult FavoriteParks()
         {
-            return View(model);
+            IList<SurveyViewModel> surveys = surveyDAO.GetAllSurveys();
+            return View(surveys);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

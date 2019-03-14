@@ -5,11 +5,12 @@
 
 <h2>FavoriteParks</h2>
 
-@*Loop not yet functioning due to possible parameter reference errors*@
-@*@foreach (SurveyViewModel survey in Model)
-{
-    <div class="survey-results">
-
-    </div>
-}*@
-
+<div id="surveys">
+    @foreach (SurveyViewModel survey in Model)
+    {
+        <div class="survey">
+            <h3>@survey.ParkName</h3>
+            <h3>@survey.SurveyCount</h3>
+        </div>
+    }
+</div>

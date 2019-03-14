@@ -24,6 +24,19 @@ namespace WebApplication.Web
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(@"SELECT park.parkName, COUNT(*) AS surveyCount
+                                                    FROM park JOIN survey_result ON park.parkCode = survey_result.parkCode 
+                                                    GROUP BY park.parkName 
+                                                    ORDER BY surveyCount DESC, park.parkName", conn);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        SurveyViewModel model = ConvertReaderToPark(reader);
+                        output.Add(model);
+                    }
                 }
             }
             catch (Exception ex)
@@ -34,7 +47,17 @@ namespace WebApplication.Web
             return output;
         }
 
-        public int SaveSurvey(SurveyViewModel newSurvey)
+        private SurveyViewModel ConvertReaderToPark(SqlDataReader reader)
+        {
+            SurveyViewModel model = new SurveyViewModel();
+
+            model.ParkName = Convert.ToString(reader["parkName"]);
+            model.SurveyCount = Convert.ToInt32(reader["surveyCount"]);
+
+            return model;
+        }
+
+        public void SaveSurvey(SurveyViewModel newSurvey)
         {
             try
             {
@@ -58,7 +81,6 @@ namespace WebApplication.Web
             {
                 throw;
             }
-            return 0;
         }
     }
 }
