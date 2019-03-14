@@ -9,6 +9,16 @@
     flex-direction: row;
 }
 
+table {
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+}
+
+body {
+    background: radial-gradient(circle, gray, white);
+}
+
 #survey {
     display:flex;
 }
@@ -30,17 +40,17 @@
     text-align: center;
 }
 
-
 .park-image {
-    grid-area: park;
+    margin-bottom: 10px;
+}
+.detail-image {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     text-align: center;
-    margin: 10px;
+    margin: 5px;
 }
 
-.details {
-    grid-area: details;
-}
 .info {
     grid-area: info;
 }
@@ -82,5 +92,24 @@
 
 .nav.navbar-nav {
     margin-top: 0px;
+
 }
 
+ul.nav {
+    list-style: none;
+    display: flex;
+    line-height: 40px;
+}
+
+.nav a {
+    text-decoration: none;
+    margin-right: 30px;
+    background-color: beige;
+    color: black;
+    padding: 4px;
+    border-radius: 10%;
+}
+
+.nav ul {
+    background-color: white;
+}
