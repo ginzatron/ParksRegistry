@@ -42,7 +42,7 @@
             <td>@Model.Campsites</td>
             <td>@Model.Climate</td>
             <td>$@Model.EntryFee</td>
-            <td @Model.YearFounded</td>
+            <td> @Model.YearFounded</td>
             <td>@Model.AnnualVisitorCount per year</td>
             <td>@Model.NumberAnimalSpecies species</td>
  
@@ -72,44 +72,47 @@
                     <img src="~/images/weather/@weather.weatherImages[weather.Forecast]" />
 
                     <div class="temps">
-                        <h3>@weather.LowTemp</h3>
-                        <h3>@weather.HighTemp</h3>
+                        <h3>Low @weather.LowTemp</h3>
+                        <h3>High @weather.HighTemp</h3>
                     </div>
-                    <div class="temp-advisory">
-                        @if (weather.LowTemp < 20)
-                        {
-                            <h3>don't freeze to death</h3>
-                        }
-                        @if (weather.HighTemp > 75)
-                        {
-                            <h3>bring an extra gallon of water</h3>
-                        }
-                        @if (weather.HighTemp - weather.LowTemp > 20)
-                        {
-                            <h3>wear breathable layers</h3>
-                        }
+                    <div class="alt-info">
+                        <div class="temp-advisory">
+                            @if (weather.LowTemp < 20)
+                            {
+                                <h3>don't freeze to death</h3>
+                            }
+                            @if (weather.HighTemp > 75)
+                            {
+                                <h3>bring an extra gallon of water</h3>
+                            }
+                            @if (weather.HighTemp - weather.LowTemp > 20)
+                            {
+                                <h3>wear breathable layers</h3>
+                            }
+                        </div>
+                        <div class="forecast">
+                            <h3>@weather.Forecast</h3>
+                        </div>
+                        <div class="forecast-advisory">
+                            @if (weather.Forecast == "rain")
+                            {
+                                <h3>pack rain gear and wear waterproof shoes</h3>
+                            }
+                            else if (weather.Forecast == "snow")
+                            {
+                                <h3>pack snowshoes</h3>
+                            }
+                            else if (weather.Forecast == "thunderstorms")
+                            {
+                                <h3>seek shelter and avoid hiking on exposed ridges</h3>
+                            }
+                            else if (weather.Forecast == "sunny")
+                            {
+                                <h3>pack sunblock</h3>
+                            }
+                        </div>
                     </div>
-                    <div class="forecast">
-                        <h3>@weather.Forecast</h3>
-                    </div>
-                    <div class="forecast-advisory">
-                        @if (weather.Forecast == "rain")
-                        {
-                            <h3>pack rain gear and wear waterproof shoes</h3>
-                        }
-                        else if (weather.Forecast == "snow")
-                        {
-                            <h3>pack snowshoes</h3>
-                        }
-                        else if (weather.Forecast == "thunderstorms")
-                        {
-                            <h3>seek shelter and avoid hiking on exposed ridges</h3>
-                        }
-                        else if (weather.Forecast == "sunny")
-                        {
-                            <h3>pack sunblock</h3>
-                        }
-                    </div>
+                    
 
                 </div>
             }

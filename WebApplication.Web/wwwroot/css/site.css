@@ -15,25 +15,17 @@ table {
     text-align: center;
 }
 
-body {
+body{
     background: radial-gradient(circle, gray, white);
+}
+
+.weather{
+    text-align: center;
 }
 
 #survey {
     display:flex;
 }
-
-/*#detail-body {
-    display: grid;
-    grid-template-columns:1fr 2fr 2fr 2fr 2fr 2fr 1fr;
-    grid-template-areas:
-    '. header header header header header .'
-    'park park park park park park park'
-    '. details details details details details .'
-    '. info info info info info .'
-    '. weather weather weather weather weather .';
-
-}*/
 
 .park-name {
     grid-area: header;
@@ -78,9 +70,6 @@ body {
     flex-direction: column;
 }
 
-.weather:first-child {
-    
-}
 
 .header {
     background-color: lightblue;
