@@ -12,8 +12,42 @@
     display:flex;
 }
 
+#detail-body {
+    display: grid;
+    grid-template-columns:1fr 2fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-areas:
+    '. header header header header header .'
+    '. . park park park . .'
+    '. details details details details details .'
+    '. info info info info info .'
+    '. weather weather weather weather weather .';
+
+}
+
+.park-name {
+    grid-area: header;
+    text-align: center;
+}
+
+
+.park-image {
+    grid-area: park;
+    width: 100%;
+    text-align: center;
+}
+
+.details {
+    grid-area: details;
+    display: flex;
+    flex-wrap: wrap;
+}
+.info {
+    grid-area: info;
+}
+
 #weathers {
     display: flex;
+    grid-area: weather;
 }
 
 .weather {
@@ -22,5 +56,6 @@
 }
 
 .bannerImage {
-    max-width: 30%;
+    max-width: 40%;
 }
+
