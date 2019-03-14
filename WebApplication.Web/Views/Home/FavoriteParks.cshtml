@@ -10,11 +10,14 @@
     @foreach (SurveyViewModel survey in Model)
     {
         filePath = survey.Code.ToLower() + ".jpg"; 
+    <div class="faves">
         <img src="~/images/parks/@filePath" />
 
         <div class="survey">
             <h3>@survey.ParkName</h3>
-            <h3>@survey.SurveyCount</h3>
+            <h3>@survey.SurveyCount VOTES!</h3>
         </div>
+    </div>
+
     }
 </div>

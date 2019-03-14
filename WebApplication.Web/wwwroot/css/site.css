@@ -16,7 +16,8 @@ table {
 }
 
 body{
-    background: radial-gradient(circle, gray, white);
+    background: radial-gradient(circle, light-gray, white);
+    margin:0;
 }
 
 .weather{
@@ -25,6 +26,16 @@ body{
 
 #survey {
     display:flex;
+    flex-direction: column;
+}
+
+.park, .email, .state, .activity {
+    display: flex;  
+    margin-bottom: 7px;
+}
+
+label {
+    width: 200px;
 }
 
 .park-name {
@@ -70,7 +81,6 @@ body{
     flex-direction: column;
 }
 
-
 .header {
     background-color: lightblue;
 }
@@ -101,4 +111,22 @@ ul.nav {
 
 .nav ul {
     background-color: white;
+}
+
+.email label{
+    width:200px;
+}
+
+.faves {
+    display: flex;
+}
+
+.faves img {
+    margin-bottom: 12px;    
+    margin-right: 9px;
+}
+
+#page-content {
+    margin:0 auto;
+    width: 80%;
 }

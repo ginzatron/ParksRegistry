@@ -5,9 +5,9 @@
 
 <h2>Survey</h2>
 
-<div id="survey">
-    <form method="post" asp-controller="home" asp-action="survey">
 
+<form method="post" asp-controller="home" asp-action="survey">
+    <div id="survey">
         <div class="park">
             <label name="Code">Favorite Park</label>
 
@@ -47,9 +47,11 @@
                 <option value="extremely_active">Extremely Active</option>
             </select>
         </div>
-        <input type="submit" value="Submit Survey" />
-    </form>
-</div>
+
+    </div>
+    <input type="submit" value="Submit Survey" />
+</form>
+
 
 
 
