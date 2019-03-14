@@ -1,6 +1,7 @@
 ﻿@model IList<SurveyViewModel>
 @{
     ViewData["Title"] = "FavoriteParks";
+    string filePath = string.Empty;
 }
 
 <h2>FavoriteParks</h2>
@@ -8,6 +9,9 @@
 <div id="surveys">
     @foreach (SurveyViewModel survey in Model)
     {
+        filePath = survey.Code.ToLower() + ".jpg"; 
+        <img src="~/images/parks/@filePath" />
+
         <div class="survey">
             <h3>@survey.ParkName</h3>
             <h3>@survey.SurveyCount</h3>

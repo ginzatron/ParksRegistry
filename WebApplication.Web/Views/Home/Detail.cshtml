@@ -2,9 +2,12 @@
 @{
     ViewData["Title"] = "Detail";
     string filePath = string.Empty;
+    string scale = (string)ViewData["scale"];
 }
 
 @{ filePath = Model.Code.ToLower() + ".jpg"; }
+
+
 
 <div id="detail-body">
 
@@ -32,58 +35,70 @@
             <p>Description: @Model.Description</p>
         </div>
 
+        <form method="get" asp-controller="home" asp-action="detail">
+            <input type="hidden" name="code" value="@Model.Code" />
+            <input type="submit" name="C" value="temp" />
+            <select name="scale">
+                <option value="c">Celsius</option>
+                <option value="f">Fahrenheit</option>
+            </select>
+        </form>
 
+        <div id="weathers">
+            @foreach (Weather weather in Model.weathers)
+            {
+                @if (scale == "c")
+                {
+                    weather.LowTemp =  Math.Round((weather.LowTemp - 32) / 1.8);
+                    weather.HighTemp = Math.Round((weather.HighTemp - 32) / 1.8);
+                }
 
-    <div id="weathers">
-        @foreach (Weather weather in Model.weathers)
-        {
+                <div class="weather">
+                    <img src="~/images/weather/@weather.weatherImages[weather.Forecast]" />
 
-            <div class="weather">
-                <img src="~/images/weather/@weather.weatherImages[weather.Forecast]" />
+                    <div class="temps">
+                        <h3>@weather.LowTemp</h3>
+                        <h3>@weather.HighTemp</h3>
+                    </div>
+                    <div class="temp-advisory">
+                        @if (weather.LowTemp < 20)
+                        {
+                            <h3>don't freeze to death</h3>
+                        }
+                        @if (weather.HighTemp > 75)
+                        {
+                            <h3>bring an extra gallon of water</h3>
+                        }
+                        @if (weather.HighTemp - weather.LowTemp > 20)
+                        {
+                            <h3>wear breathable layers</h3>
+                        }
+                    </div>
+                    <div class="forecast">
+                        <h3>@weather.Forecast</h3>
+                    </div>
+                    <div class="forecast-advisory">
+                        @if (weather.Forecast == "rain")
+                        {
+                            <h3>pack rain gear and wear waterproof shoes</h3>
+                        }
+                        else if (weather.Forecast == "snow")
+                        {
+                            <h3>pack snowshoes</h3>
+                        }
+                        else if (weather.Forecast == "thunderstorms")
+                        {
+                            <h3>seek shelter and avoid hiking on exposed ridges</h3>
+                        }
+                        else if (weather.Forecast == "sunny")
+                        {
+                            <h3>pack sunblock</h3>
+                        }
+                    </div>
 
-                <div class="temps">
-                    <h3>@weather.LowTemp</h3>
-                    <h3>@weather.HighTemp</h3>
                 </div>
-                <div class="temp-advisory">
-                    @if (weather.LowTemp < 20)
-                    {
-                        <h3>don't freeze to death</h3>
-                    }
-                    @if (weather.HighTemp > 75)
-                    {
-                        <h3>bring an extra gallon of water</h3>
-                    }
-                    @if (weather.HighTemp - weather.LowTemp > 20)
-                    {
-                        <h3>wear breathable layers</h3>
-                    }
-                </div>
-                <div class="forecast">
-                    <h3>@weather.Forecast</h3>
-                </div>
-                <div class="forecast-advisory">
-                    @if (weather.Forecast == "rain")
-                    {
-                        <h3>pack rain gear and wear waterproof shoes</h3>
-                    }
-                    else if (weather.Forecast == "snow")
-                    {
-                        <h3>pack snowshoes</h3>
-                    }
-                    else if (weather.Forecast == "thunderstorms")
-                    {
-                        <h3>seek shelter and avoid hiking on exposed ridges</h3>
-                    }
-                    else if (weather.Forecast == "sunny")
-                    {
-                        <h3>pack sunblock</h3>
-                    }
-                </div>
-
-            </div>
-        }
-    </div>
+            }
+        </div>
 </div>
 
 

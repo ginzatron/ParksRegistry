@@ -25,9 +25,9 @@ namespace WebApplication.Web
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand(@"SELECT park.parkName, COUNT(*) AS surveyCount
+                    SqlCommand cmd = new SqlCommand(@"SELECT park.parkName, park.parkCode, COUNT(*) AS surveyCount
                                                     FROM park JOIN survey_result ON park.parkCode = survey_result.parkCode 
-                                                    GROUP BY park.parkName 
+                                                    GROUP BY park.parkName, park.parkCode 
                                                     ORDER BY surveyCount DESC, park.parkName", conn);
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -51,6 +51,7 @@ namespace WebApplication.Web
         {
             SurveyViewModel model = new SurveyViewModel();
 
+            model.Code = Convert.ToString(reader["parkCode"]);
             model.ParkName = Convert.ToString(reader["parkName"]);
             model.SurveyCount = Convert.ToInt32(reader["surveyCount"]);
 

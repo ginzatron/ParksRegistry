@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Web.DAL;
 using WebApplication.Web.Models;
@@ -27,10 +28,31 @@ namespace WebApplication.Web.Controllers
             return View(parks);
         }  
         
-        public IActionResult Detail(string code)
+        public IActionResult Detail(string code,string scale)
         {
+            if (scale == null)
+            {
+                // Get the scale from the session.
+                scale = HttpContext.Session.GetString("scale");
+
+                if (scale == null)
+                {
+                    scale = "f";
+                }
+
+                // If it doesn't exist in the session, default to "F"
+            }
+            else
+            {
+                //Scales was passed in, save it in session
+                HttpContext.Session.SetString("scale", scale);
+            }
+
+            ViewData["scale"] = scale;
+
             Park park = parkDAO.GetParkByCode(code);
             park.weathers = weatherDAO.Get5DayForecast(code);
+
             return View(park);
         }
 

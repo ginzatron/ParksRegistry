@@ -9,8 +9,8 @@ namespace WebApplication.Web.Models
     {
         public string ParkCode { get; set; }
         public int Day { get; set; }
-        public int LowTemp { get; set; }
-        public int HighTemp { get; set; }
+        public double LowTemp { get; set; }
+        public double HighTemp { get; set; }
         public string Forecast { get; set; }
 
         public IDictionary<string, string> weatherImages = new Dictionary<string, string>()
