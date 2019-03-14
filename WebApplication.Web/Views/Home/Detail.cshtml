@@ -11,29 +11,44 @@
 
 <div id="detail-body">
 
-    <h2 class="park-name">@Model.Name</h2>
 
-        <div class="park-image">
-            <img src="~/images/parks/@filePath" />
-        </div>
+    <div class="detail-image">
+        <img src="~/images/parks/@filePath" />
+    <h2 class="park-name">@Model.Name</h2>
+            <p>@Model.Description</p>
+        <p><em>"@Model.Quote"</em></p>
+            <p><em>-- @Model.QuoteSource</em></p>
+    </div>
         
-        <div class="details">
-            <h3>$@Model.EntryFee Entry Fee</h3>
-            <h3>@Model.State</h3>
-            <h3>@Model.Acerage Acres</h3>
-            <h3>@Model.Elevation ft. in elevation</h3>
-            <h3>@Model.Miles miles of trail</h3>
-            <h3>@Model.Campsites campsites in park</h3>
-            <h3>@Model.Climate Climate</h3>
-            <h3>Year Founded @Model.YearFounded</h3>
-            <h3>@Model.AnnualVisitorCount Visitors per year</h3>
-            <h3>@Model.NumberAnimalSpecies unique animal species in the park</h3>
-        </div>
-        <div class="info">
-            <h3>@Model.QuoteSource said: </h3>
-            <p>@Model.Quote</p>
-            <p>Description: @Model.Description</p>
-        </div>
+        <table class="details">
+            <tr>
+                <th>Location</th>
+                <th>Acreage</th>
+                <th>Elevation</th>
+                <th>Trail Miles</th>
+                <th>Number of Campsites</th>
+                <th>Climate</th>
+                <th>Entry fee</th>
+                <th>Year founded</th>
+                <th>Number of Visitors</th>
+                <th>Animal species</th>
+            </tr>
+            <tr>
+                
+            <td>@Model.State</td>
+            <td>@Model.Acerage Acres</td>
+            <td>@Model.Elevation ft.</td>
+            <td>@Model.Miles sq mi.</td>
+            <td>@Model.Campsites</td>
+            <td>@Model.Climate</td>
+            <td>$@Model.EntryFee</td>
+            <td @Model.YearFounded</td>
+            <td>@Model.AnnualVisitorCount per year</td>
+            <td>@Model.NumberAnimalSpecies species</td>
+ 
+            </tr>
+        </table>
+
 
         <form method="get" asp-controller="home" asp-action="detail">
             <input type="hidden" name="code" value="@Model.Code" />
@@ -53,7 +68,7 @@
                     weather.HighTemp = Math.Round((weather.HighTemp - 32) / 1.8);
                 }
 
-                <div<div class="weather">
+                <div class="weather">
                     <img src="~/images/weather/@weather.weatherImages[weather.Forecast]" />
 
                     <div class="temps">
