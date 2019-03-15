@@ -18,17 +18,20 @@
     <a asp-area="" asp-controller="Home" asp-action="Survey">
         <button class="btn"><i class="fa fa-comment"></i> Survey</button>
     </a>
-    <body>
+    <ul class="nav navbar-nav navbar-right">
+        @await Component.InvokeAsync("NavBar") @* Render the NavBar component. *@
+    </ul>
+</div>
 
-</div>
-<div id="page-content">
-    @RenderBody()
-</div>
-<div class="footer">
-    <p>
-        <i class="fa fa-copyright" aria-hidden="true"></i>
-        Noah and Trevor Cohort[10] 2019!
-    </p>
-</div>
+<body>
+    <div id="page-content">
+        @RenderBody()
+    </div>
+    <div class="footer">
+        <p>
+            <i class="fa fa-copyright" aria-hidden="true"></i>
+            Noah and Trevor Cohort[10] 2019!
+        </p>
+    </div>
 </body>
 </html>

@@ -9,12 +9,25 @@ namespace WebApplication.Web.DAL
 {
     public class WeatherSqlDAO : IWeatherDAO
     {
+        /// <summary>
+        /// connection string to database
+        /// </summary>
         private string connectionString;
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="connectionString"></param>
         public WeatherSqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// return list of all weathers for a specific park
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public IList<Weather> Get5DayForecast(string code)
         {
             IList<Weather> weathers = new List<Weather>();
@@ -44,6 +57,11 @@ namespace WebApplication.Web.DAL
             return weathers;
         }
 
+        /// <summary>
+        /// convert sql data reader to weather object
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         private Weather ConvertReaderToWeather(SqlDataReader reader)
         {
             Weather weather = new Weather();

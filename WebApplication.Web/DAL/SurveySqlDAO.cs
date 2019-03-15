@@ -8,13 +8,24 @@ namespace WebApplication.Web
 {
     public class SurveySqlDAO : ISurveyDAO
     {
+        /// <summary>
+        /// database connection string
+        /// </summary>
         private readonly string connectionString;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="connectionString"></param>
         public SurveySqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// returns a list of surveys in database
+        /// </summary>
+        /// <returns></returns>
         public IList<SurveyViewModel> GetAllSurveys()
         {
             IList<SurveyViewModel> output = new List<SurveyViewModel>();
@@ -47,6 +58,11 @@ namespace WebApplication.Web
             return output;
         }
 
+        /// <summary>
+        /// converts sql data reader to survey object
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         private SurveyViewModel ConvertReaderToPark(SqlDataReader reader)
         {
             SurveyViewModel model = new SurveyViewModel();
@@ -58,6 +74,10 @@ namespace WebApplication.Web
             return model;
         }
 
+        /// <summary>
+        /// adds new survey into database
+        /// </summary>
+        /// <param name="newSurvey"></param>
         public void SaveSurvey(SurveyViewModel newSurvey)
         {
             try
@@ -73,7 +93,6 @@ namespace WebApplication.Web
                     cmd.Parameters.AddWithValue("@emailAddress", newSurvey.Email);
                     cmd.Parameters.AddWithValue("@state", newSurvey.State);
                     cmd.Parameters.AddWithValue("@activityLevel", newSurvey.ActivityLevel);
-                    cmd.Parameters.AddWithValue("@review_date", DateTime.Now);
 
                     cmd.ExecuteNonQuery();
                 }

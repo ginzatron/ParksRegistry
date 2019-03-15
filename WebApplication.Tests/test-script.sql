@@ -5,8 +5,8 @@ DELETE FROM park;
 
 
 -- INSERT sample park
-INSERT INTO park VALUES ('TWNG','name','st',10,11,12,13,'tropical',2000,100,'look out','abraham lincoln','oh what a park',6000,1)
-DECLARE @parkCode varchar(4) = ('TWNG')
+INSERT INTO park VALUES ('CVNP','name','st',10,11,12,13,'tropical',2000,100,'look out','abraham lincoln','oh what a park',6000,1)
+DECLARE @parkCode varchar(4) = ('CVNP')
 
 -- INSERT sample survey
 INSERT INTO survey_result VALUES (@parkCode,'email@email.com','PA','active')

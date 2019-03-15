@@ -9,12 +9,24 @@ namespace WebApplication.Web.DAL
 {
     public class ParkSqlDAO : IParkDAO
     {
+        /// <summary>
+        /// database connection string
+        /// </summary>
         private string connectionString;
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="connectionString"></param>
         public ParkSqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
+        /// <summary>
+        /// method to get all parks from database
+        /// </summary>
+        /// <returns></returns>
         public IList<Park> GetAllParks()
         {
             IList<Park> parks = new List<Park>();
@@ -43,6 +55,11 @@ namespace WebApplication.Web.DAL
             return parks;
         }
 
+        /// <summary>
+        /// reteurn single park from database identified by 4 letter code
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public Park GetParkByCode(string code)
         {
             Park park = new Park();
@@ -73,6 +90,11 @@ namespace WebApplication.Web.DAL
             return park;
         }
 
+        /// <summary>
+        /// converts sqldata reader to a park object
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         private Park ConvertReaderToPark(SqlDataReader reader)
         {
             Park park = new Park();

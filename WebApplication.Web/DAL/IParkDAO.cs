@@ -8,8 +8,17 @@ namespace WebApplication.Web.DAL
 {
     public interface IParkDAO
     {
+        /// <summary>
+        /// returns list of parks
+        /// </summary>
+        /// <returns></returns>
         IList<Park> GetAllParks();
 
+        /// <summary>
+        /// gets individual park from four letter park code
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         Park GetParkByCode(string code);
     }
 }

@@ -22,6 +22,7 @@ namespace WebApplication.Web.Controllers
             this.weatherDAO = weatherDAO;
             this.surveyDAO = surveyDAO;
         }
+
         public IActionResult Index()
         {
             IList<Park> parks = parkDAO.GetAllParks();
@@ -74,7 +75,7 @@ namespace WebApplication.Web.Controllers
             }
             return View(model);
         }
-        // TODO need to re-evaluate the parameters possibly
+
         public IActionResult FavoriteParks()
         {
             IList<SurveyViewModel> surveys = surveyDAO.GetAllSurveys();

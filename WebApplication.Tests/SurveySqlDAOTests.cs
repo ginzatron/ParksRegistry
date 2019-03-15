@@ -12,7 +12,6 @@ namespace WebApplication.Tests
     [TestClass]
     public class SurveySqlDAOTests : CapstoneTests
     {
-
         [TestMethod]
         public void GetAllSurveysReturnsOneSurvey()
         {
@@ -20,6 +19,20 @@ namespace WebApplication.Tests
             IList<SurveyViewModel> surveys = surveyDAO.GetAllSurveys();
 
             Assert.AreEqual(1, surveys.Count);
+        }
+
+        [TestMethod]
+        public void AddingSurveyIncreasesCountBy1()
+        {
+            SurveySqlDAO surveyDAO = new SurveySqlDAO(ConnectionString);
+
+            SurveyViewModel survey = new SurveyViewModel() { Code = "CVNP", Email = "heyya@outkast.biz", State = "GA", ActivityLevel = "active" };
+            surveyDAO.SaveSurvey(survey);
+
+            IList<SurveyViewModel> allSurveys = surveyDAO.GetAllSurveys();
+
+
+            Assert.AreEqual(2, allSurveys.Count);
         }
     }
 }
