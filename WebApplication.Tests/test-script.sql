@@ -13,7 +13,7 @@ INSERT INTO survey_result VALUES (@parkCode,'email@email.com','PA','active')
 DECLARE @surveyId int = (SELECT @@IDENTITY);
 
 ---- INSERT sample weather
-INSERT INTO site VALUES (@parkCode,1,20,25,'rain')
+INSERT INTO weather VALUES (@parkCode,1,20,25,'rain')
 DECLARE @weather varchar(4) = (@parkCode);
 
 -- Return reservation ID
