@@ -6,7 +6,7 @@ using WebApplication.Web.Models;
 
 namespace WebApplication.Web
 {
-    internal class SurveySqlDAO : ISurveyDAO
+    public class SurveySqlDAO : ISurveyDAO
     {
         private readonly string connectionString;
 
