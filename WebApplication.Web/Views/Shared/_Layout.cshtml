@@ -1,26 +1,34 @@
 ﻿<!DOCTYPE html>
-<div class="header">
-    <img class="bannerImage" src="~/images/logo.png" />
-</div>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApplication.Web</title>
     <link href="~/css/site.css" rel="stylesheet" />
 
 </head>
-<body>
-
-    <div class="navbar-fixed-top">
-        <ul class="nav navbar-nav">
-            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a asp-area="" asp-controller="Home" asp-action="Survey">Survey</a></li>
-        </ul>
+<div class="topnav">
+    <div class="header">
+        <img class="bannerImage" src="~/images/logo.png" />
     </div>
-    <div id="page-content">
-        @RenderBody()
-    </div>
+    <a asp-area="" asp-controller="Home" asp-action="Index">
+        <button class="btn"><i class="fa fa-home"></i> Home</button>
+    </a>
+    <a asp-area="" asp-controller="Home" asp-action="Survey">
+        <button class="btn"><i class="fa fa-comment"></i> Survey</button>
+    </a>
+    <body>
 
+</div>
+<div id="page-content">
+    @RenderBody()
+</div>
+<div class="footer">
+    <p>
+        <i class="fa fa-copyright" aria-hidden="true"></i>
+        Noah and Trevor Cohort[10] 2019!
+    </p>
+</div>
 </body>
 </html>
