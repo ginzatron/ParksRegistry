@@ -19,5 +19,14 @@ namespace WebApplication.Tests
 
             Assert.AreEqual(1, parks.Count);
         }
+
+        [TestMethod]
+        public void GetParkByCode_TWNG()
+        {
+            ParkSqlDAO parkSqlDAO = new ParkSqlDAO(ConnectionString);
+            Park park = parkSqlDAO.GetParkByCode("TWNG");
+
+            Assert.AreEqual(park.Code, "TWNG");
+        }
     }
 }
