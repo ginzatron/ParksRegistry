@@ -214,3 +214,11 @@ label {
     width: 30%;
 }
 
+.top-nav-buttons {
+    display: flex;
+    justify-content:space-between;
+}
+
+.registers {
+    display: flex;
+}

@@ -8,22 +8,26 @@
     <link href="~/css/site.css" rel="stylesheet" />
 
 </head>
-<div class="topnav">
-    <div class="header">
-        <img class="bannerImage" src="~/images/logo.png" />
-    </div>
-    <a asp-area="" asp-controller="Home" asp-action="Index">
-        <button class="btn"><i class="fa fa-home"></i> Home</button>
-    </a>
-    <a asp-area="" asp-controller="Home" asp-action="Survey">
-        <button class="btn"><i class="fa fa-comment"></i> Survey</button>
-    </a>
-    <ul class="nav navbar-nav navbar-right">
-        @await Component.InvokeAsync("NavBar") @* Render the NavBar component. *@
-    </ul>
-</div>
-
 <body>
+    <div class="topnav">
+        <div class="header">
+            <img class="bannerImage" src="~/images/logo.png" />
+        </div>
+        <div class="top-nav-buttons">
+            <div class="home-survey">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <button class="btn"><i class="fa fa-home"></i> Home</button>
+                </a>
+                <a asp-area="" asp-controller="Home" asp-action="Survey">
+                    <button class="btn"><i class="fa fa-comment"></i> Survey</button>
+                </a>
+            </div>
+            <div class="navbar-right">
+                @await Component.InvokeAsync("NavBar") @* Render the NavBar component. *@
+            </div>
+        </div>
+      
+    </div>
     <div id="page-content">
         @RenderBody()
     </div>

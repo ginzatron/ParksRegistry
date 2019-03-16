@@ -4,14 +4,15 @@
 }
 
 
-
-@if (Model == null)
-{
-    <li><a asp-area="" asp-controller="User" asp-action="Register">Register</a></li>
-    <li><a asp-area="" asp-controller="User" asp-action="Login">Login</a></li>
-}
-else
-{
-    <li><a asp-area="" asp-controller="User" asp-action="Index">Welcome @Model.Username</a></li>
-    <li><a asp-area="" asp-controller="User" asp-action="Logoff">Logout</a></li>
-}
+<div class="registers">
+    @if (Model == null)
+    {
+        <div><a asp-area="" asp-controller="User" asp-action="Register">Register</a></div>
+        <div><a asp-area="" asp-controller="User" asp-action="Login">Login</a></div>
+    }
+    else
+    {
+        <div><a asp-area="" asp-controller="User" asp-action="Index">Welcome @Model.Username</a></div>
+        <div><a asp-area="" asp-controller="User" asp-action="Logoff">Logout</a></div>
+    }
+</div>
