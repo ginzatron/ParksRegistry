@@ -47,6 +47,7 @@ label {
     display: flex;
     flex-direction:column;
     border-bottom: .5px solid;
+    text-align: center;
 }
 
 .left-details {
@@ -222,3 +223,10 @@ label {
 .registers {
     display: flex;
 }
+
+.park-info h3 {
+    text-align: center;
+    font-size: x-large;
+}
+
+
