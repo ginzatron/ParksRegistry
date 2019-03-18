@@ -17,23 +17,23 @@
         <h2 class="park-name">@Model.Name</h2>
         <p>@Model.Description</p>
         <p><em>"@Model.Quote"</em></p>
-        <p><em>-- @Model.QuoteSource</em></p>
+        <p><em>-- <strong>@Model.QuoteSource</strong></em></p>
     </div>
 
     <div class="park-details">
         <div class="left-details">
             <h3>State: @Model.State</h3>
-            <h3>Founded in: @Model.YearFounded</h3>
-            <h3>Entry fee: $@Model.EntryFee</h3>
-            <h3>@Model.Acerage Acres</h3>
-            <h3>Campsites: @Model.Campsites</h3>
+            <h3>Founded: @Model.YearFounded</h3>
+            <h3>Entry fee: @Model.EntryFee.ToString("C0")</h3>
+            <h3>@Model.Acerage.ToString("N0") Acres</h3>
+            <h3>Campsites: @Model.Campsites.ToString("N0")</h3>
         </div>
         <div class="right-details">
             <h3>Hikeable miles: @Model.Miles sq mi.</h3>
-            <h3>Elevation: @Model.Elevation ft.</h3>
+            <h3>Elevation: @Model.Elevation.ToString("N0") ft.</h3>
             <h3>Climate: @Model.Climate</h3>
-            <h3>Yearly visitors: @Model.AnnualVisitorCount per year</h3>
-            <h3>Unique Species in Park: @Model.NumberAnimalSpecies species</h3>
+            <h3>Visitors: @Model.AnnualVisitorCount.ToString("N0")/yr</h3>
+            <h3>Unique Species: @Model.NumberAnimalSpecies.ToString("N0")</h3>
         </div>
     </div>
 

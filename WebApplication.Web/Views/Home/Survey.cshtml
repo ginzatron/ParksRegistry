@@ -38,14 +38,18 @@
         </div>
 
         <div class="activity">
-            <label name="ActivityLevel">Activity Level</label>
-
-            <select asp-for="ActivityLevel">
-                <option value="sedentary">Sedentary</option>
-                <option value="inactive">Inactive</option>
-                <option value="active">Active</option>
-                <option value="extremely_active">Extremely Active</option>
-            </select>
+            <label for="sedentary">
+                <input id="sedentary" type="radio" name="activityLevel">Sedentary
+            </label>
+            <label for="inactive">
+                <input id="inactive" type="radio" name="activityLevel">Inactive
+            </label>
+            <label for="active">
+                <input id="active" type="radio" name="activityLevel">Active
+            </label>
+            <label for="extremely_active">
+                <input id="extremely_active" type="radio" name="activityLevel">Extremely Active
+            </label>
         </div>
 
     </div>

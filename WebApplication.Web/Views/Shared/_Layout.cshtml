@@ -15,12 +15,12 @@
         </div>
         <div class="top-nav-buttons">
             <div class="home-survey">
-                <a asp-area="" asp-controller="Home" asp-action="Index">
+                <a asp-area="" asp-controller="Home" asp-action="Index"/>
                     <button class="btn"><i class="fa fa-home"></i> Home</button>
-                </a>
-                <a asp-area="" asp-controller="Home" asp-action="Survey">
+                
+                <a asp-area="" asp-controller="Home" asp-action="Survey"/>
                     <button class="btn"><i class="fa fa-comment"></i> Survey</button>
-                </a>
+                
             </div>
             <div class="navbar-right">
                 @await Component.InvokeAsync("NavBar") @* Render the NavBar component. *@
