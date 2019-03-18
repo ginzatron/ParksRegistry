@@ -10,7 +10,6 @@
 @{ filePath = Model.Code.ToLower() + ".jpg"; }
 
 
-
 <div id="detail-body">
 
     <div class="detail-image">
@@ -61,60 +60,60 @@
                 displayHigh = Math.Round((weather.HighTemp - 32) / 1.8);
             }
 
-        <div class="weather">
-            <img src="~/images/weather/@weather.weatherImages[weather.Forecast]" />
+            <div class="weather">
+                <img src="~/images/weather/@weather.weatherImages[weather.Forecast]" />
 
-            <div class="temps">
-                <h3>Low @displayLow</h3>
-                <h3>High @displayHigh</h3>
-            </div>
+                <div class="temps">
+                    <h3 >Low @displayLow</h3>
+                    <h3 >High @displayHigh</h3>
+                </div>
 
-            <div class="temp-advisory">
-                @if (weather.LowTemp < 20)
-                {
-                    <h4>*don't freeze to death*</h4>
-                }
-                @if (weather.HighTemp > 75)
-                {
-                    <h4>*bring an extra gallon of water*</h4>
-                }
-                @if (weather.HighTemp - Model.weathers[0].LowTemp > 20)
-                {
-                    <h4>*wear breathable layers*</h4>
-                }
-            </div>
+                <div class="temp-advisory">
+                    @if (weather.LowTemp < 20)
+                    {
+                        <h4>*don't freeze to death*</h4>
+                    }
+                    @if (weather.HighTemp > 75)
+                    {
+                        <h4>*bring an extra gallon of water*</h4>
+                    }
+                    @if (weather.HighTemp - Model.weathers[0].LowTemp > 20)
+                    {
+                        <h4>*wear breathable layers*</h4>
+                    }
+                </div>
 
-            <div class="forecast-advisory">
-                @if (weather.Forecast == "rain")
-                {
-                    <div class="rain-icon">
-                        <i class="fa fa-umbrella" aria-hidden="true"></i>
-                        <h4>*pack rain gear and wear waterproof shoes*</h4>
-                    </div>
-                }
-                else if (weather.Forecast == "snow")
-                {
-                    <div class="cold-icon">
-                        <i class="fa fa-thermometer-empty" aria-hidden="true"></i>
-                        <h4>*pack snowshoes*</h4>
-                    </div>
-                }
-                else if (weather.Forecast == "thunderstorms")
-                {
-                    <div>
-                        <i class="fa fa-umbrella" aria-hidden="true"></i>
-                        <h4>*seek shelter and avoid hiking on exposed ridges*</h4>
-                    </div>
-                }
-                else if (weather.Forecast == "sunny")
-                {
-                    <div class="hot-icon">
-                        <i class="fa fa-thermometer-full" aria-hidden="true"></i>
-                        <h4>*pack sunblock*</h4>
-                    </div>
-                }
+                <div class="forecast-advisory">
+                    @if (weather.Forecast == "rain")
+                    {
+                        <div class="rain-icon">
+                            <i class="fa fa-umbrella" aria-hidden="true"></i>
+                            <h4>*pack rain gear and wear waterproof shoes*</h4>
+                        </div>
+                    }
+                    else if (weather.Forecast == "snow")
+                    {
+                        <div class="cold-icon">
+                            <i class="fa fa-thermometer-empty" aria-hidden="true"></i>
+                            <h4>*pack snowshoes*</h4>
+                        </div>
+                    }
+                    else if (weather.Forecast == "thunderstorms")
+                    {
+                        <div>
+                            <i class="fa fa-umbrella" aria-hidden="true"></i>
+                            <h4>*seek shelter and avoid hiking on exposed ridges*</h4>
+                        </div>
+                    }
+                    else if (weather.Forecast == "sunny")
+                    {
+                        <div class="hot-icon">
+                            <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+                            <h4>*pack sunblock*</h4>
+                        </div>
+                    }
+                </div>
             </div>
-        </div>
         }
     </div>
 </div>
